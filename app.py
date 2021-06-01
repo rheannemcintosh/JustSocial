@@ -53,10 +53,8 @@ def stream(username=None):
         user = current_user
     if username:
         template = 'user_stream.html'
-    return render_template(template, stream=streamm, user=user)
+    return render_template(template, stream=stream, user=user)
     
-
-
 @app.route('/register', methods=('GET', 'POST'))
 def register():
     form = forms.RegisterForm()
