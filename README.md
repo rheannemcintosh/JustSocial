@@ -39,7 +39,7 @@ The initial work is still underway, but currently the application uses Flask and
 - **Author:** Rheanne McIntosh
 - **365 Days of Code:** Day 211 - Ongoing / 365
 - **Treehouse Tutorial:** [A Social Network with Flask](https://teamtreehouse.com/library/a-social-network-with-flask)
-- **Instructors:** Treehouse - Kenneth Love
+- **Instructor:** Kenneth Love
 
 If you have any questions or can suggest any improvements, please let me know!
 
