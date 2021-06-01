@@ -38,8 +38,23 @@ def after_request(response):
 
 @app.route('/')
 def index():
-    return '<h1>JustSocial</h1>'
+    stream = models.Post.select().limit(100)
+    return render_template('stream.html', stream=stream)
 
+@app.route('/stream')
+@app.route('/stream/<username>')
+def stream(username=None):
+    template = 'stream.html'
+    if username and username != current_user.username:
+        user = models.User.select().where(models.User.username**username).get()
+        stream = user.posts.limit(100)
+    else:
+        stream = current_user.get_stream().limit(100)
+        user = current_user
+    if username:
+        template = 'user_stream.html'
+    return render_template(template, stream=stream, user=user)
+    
 @app.route('/register', methods=('GET', 'POST'))
 def register():
     form = forms.RegisterForm()

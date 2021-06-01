@@ -28,12 +28,13 @@ class User(UserMixin, Model):
     @classmethod
     def create_user(cls, username, email, password, admin=False):
         try:
-            cls.create(
-                username=username,
-                email=email,
-                password=generate_password_hash(password),
-                is_admin=admin
-            )
+            with DATABASE.transaction():
+                cls.create(
+                    username=username,
+                    email=email,
+                    password=generate_password_hash(password),
+                    is_admin=admin
+                )
         except IntegrityError:
             raise ValueError("User already exists")
 
@@ -51,5 +52,6 @@ class Post(Model):
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([User], safe=True)
+    DATABASE.create_tables([User, POST ], safe=True)
     DATABASE.close()
+,
