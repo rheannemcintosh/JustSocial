@@ -25,6 +25,16 @@ class User(UserMixin, Model):
             (Post.user == self)
         )
 
+    def following(self):
+        """The users that we are following."""
+        return (
+            User.select().join(
+                Relationship, on=Relationship.to_user
+            ).where(
+                Relationship.from_user == self
+            )
+        )
+
     @classmethod
     def create_user(cls, username, email, password, admin=False):
         try:
