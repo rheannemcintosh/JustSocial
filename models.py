@@ -50,8 +50,17 @@ class Post(Model):
         database = DATABASE
         order_by = ('-timestamp',)
 
+class Relationship(Model):
+    from_user = ForeignKeyField(User, related_name='relationships')
+    to_user = ForeignKeyField(User, related_name='related_to')
+
+    class Meta:
+        database = DATABASE
+        indexes = (
+            (('from_user', 'to_user'), True)
+        )
+
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([User, POST ], safe=True)
+    DATABASE.create_tables([User, Post, Relationship ], safe=True)
     DATABASE.close()
-,
