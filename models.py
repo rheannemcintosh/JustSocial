@@ -35,6 +35,16 @@ class User(UserMixin, Model):
             )
         )
 
+    def followers(self):
+        """Get users following the current user"""
+        return (
+            User.select().join(
+                Relationship, on=Relationship.from_user
+            ).where(
+                Relationship.to_user == self
+            )
+        )
+
     @classmethod
     def create_user(cls, username, email, password, admin=False):
         try:
