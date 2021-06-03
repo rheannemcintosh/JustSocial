@@ -54,6 +54,11 @@ def stream(username=None):
     if username:
         template = 'user_stream.html'
     return render_template(template, stream=stream, user=user)
+
+@app.route('/post/<int:post_id>')
+def view_post(post_id):
+    posts = models.Post.select().where(models.Post.id == post_id)
+    return render_template('stream.html', stream=posts)
     
 @app.route('/register', methods=('GET', 'POST'))
 def register():
