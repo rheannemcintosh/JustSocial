@@ -9,23 +9,23 @@ The initial work is still underway, but currently the application uses Flask and
 <!-- :black_square_button: for not complete -->
 <!-- :white_check_mark: for complete -->
 ## Completion Checklist (Complete :confetti_ball:)
-:black_square_button: Upload Code _(In Progress)_
+- [X] Upload Code _(In Progress)_
 
-:black_square_button: Format Code
+- [ ] Format Code
 
-:black_square_button: Update README _(In Progress)_
+- [ ] Update README _(In Progress)_
 
-:black_square_button: Update Repository _(In Progress)_
+- [ ] Update Repository _(In Progress)_
 
-:black_square_button: Post on Instagram
+- [ ] Post on Instagram
 
-:black_square_button: Update Wiki
+- [ ] Update Wiki
 
-:black_square_button: Write Application Setup / Commands
+- [ ] Write Application Setup / Commands
 
-:black_square_button: Create Next Steps
+- [ ] Create Next Steps
  
-:black_square_button: Archive Repository
+- [ ] Archive Repository
 
 <!-- Repository Next Steps -->
 <!--
